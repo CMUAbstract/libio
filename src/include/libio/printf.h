@@ -19,6 +19,11 @@
 
 #if defined(CONFIG_LIBEDB_PRINTF_EIF) || defined(CONFIG_LIBEDB_PRINTF_BARE)
 
+// Initialization call
+#if defined(CONFIG_LIBEDB_PRINTF_BARE)
+#define INIT_CONSOLE() BARE_PRINTF_ENABLE()
+#endif
+
 // The multi-statement printf, is...
 #define BLOCK_PRINTF_BEGIN() ENERGY_GUARD_BEGIN()
 #define BLOCK_PRINTF(...) BARE_PRINTF(__VA_ARGS__)
@@ -33,6 +38,8 @@
 
 #elif defined(CONFIG_LIBMSPCONSOLE_PRINTF)
 
+#define INIT_CONSOLE() UART_init() // from wisp-base
+
 // All special printfs fall back to the regular printf
 #define BLOCK_PRINTF_BEGIN()
 #define BLOCK_PRINTF(...) printf(__VA_ARGS__)
@@ -42,6 +49,8 @@
 #define BARE_PRINTF(...) printf(__VA_ARGS__)
 
 #else // no printf
+
+#define INIT_CONSOLE()
 
 // All printfs fall back to nop
 #define BLOCK_PRINTF_BEGIN()
