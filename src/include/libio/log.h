@@ -2,7 +2,7 @@
 #define LIBIO_LOG_H
 
 /* Configuration:
- *   * Verbosity level: VERBOSE[<level>], where <level> is a digit 2 or above
+ *   * Verbosity level: VERBOSE=<level>
  *
  * Usage:
  *   * LOG<level>()
@@ -11,23 +11,23 @@
 
 #include "printf.h"
 
-#if defined(VERBOSE) || defined(VERBOSE2)
+#if VERBOSE > 0
 
 #define BLOCK_LOG_BEGIN() BLOCK_PRINTF_BEGIN()
 #define BLOCK_LOG(...)    BLOCK_PRINTF(__VA_ARGS__)
 #define BLOCK_LOG_END()   BLOCK_PRINTF_END()
 
-#ifdef VERBOSE
+#if VERBOSE > 0
 #define LOG PRINTF
 #else
 #define LOG(...)
 #endif
 
-#ifdef VERBOSE2
+#if VERBOSE >= 2
 #define LOG2 PRINTF
-#else // !VERBOSE2
+#else // VERBOSE < 2
 #define LOG2(...)
-#endif // !VERBOSE2
+#endif // VERBOSE < 2
 
 #else // !VERBOSE*
 
