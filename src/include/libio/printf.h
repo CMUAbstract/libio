@@ -17,11 +17,18 @@
  *   * (uncommon) use EIF_PRINTF or BARE_PRINTF specifically
  */
 
+#include <stdio.h>
+#include <wisp-base.h>
+
 #if defined(CONFIG_LIBEDB_PRINTF_EIF) || defined(CONFIG_LIBEDB_PRINTF_BARE)
+
+#include <libedb/edb.h>
 
 // Initialization call
 #if defined(CONFIG_LIBEDB_PRINTF_BARE)
 #define INIT_CONSOLE() BARE_PRINTF_ENABLE()
+#else // CONFIG_LIBEDB_PRINTF_EIF
+#define INIT_CONSOLE()
 #endif
 
 // The multi-statement printf, is...
@@ -47,6 +54,9 @@
 
 #define EIF_PRINTF(...)  printf(__VA_ARGS__)
 #define BARE_PRINTF(...) printf(__VA_ARGS__)
+
+// Default printf also falls back to regular printf
+#define PRINTF(...) printf(__VA_ARGS__)
 
 #else // no printf
 
