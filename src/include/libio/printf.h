@@ -18,7 +18,6 @@
  */
 
 #include <stdio.h>
-#include <wisp-base.h>
 
 #if defined(CONFIG_LIBEDB_PRINTF_EIF) || defined(CONFIG_LIBEDB_PRINTF_BARE)
 
@@ -45,7 +44,9 @@
 
 #elif defined(CONFIG_LIBMSPCONSOLE_PRINTF)
 
-#define INIT_CONSOLE() UART_init() // from wisp-base
+#include <libmspconsole/printf.h>
+
+#define INIT_CONSOLE() printf_init()
 
 // All special printfs fall back to the regular printf
 #define BLOCK_PRINTF_BEGIN()
