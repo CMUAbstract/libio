@@ -9,7 +9,9 @@
  *       where <type> specifies the implementation for the PRINTF macro (the
  *       default) is either EIF or BARE
  *
- *   * CONFIG_LIBMSPCONSOLE_PRINTF
+ *   * CONFIG_LIBMSPCONSOLE_PRINTF: output channel via a HW UART module
+ *
+ *   * CONFIG_LIBMSPSOFTUART_PRINTF: output channel via a SW UART on GPIO pins
  *
  * Usage:
  *
@@ -45,6 +47,23 @@
 #elif defined(CONFIG_LIBMSPCONSOLE_PRINTF)
 
 #include <libmspconsole/printf.h>
+
+#define INIT_CONSOLE() printf_init()
+
+// All special printfs fall back to the regular printf
+#define BLOCK_PRINTF_BEGIN()
+#define BLOCK_PRINTF(...) printf(__VA_ARGS__)
+#define BLOCK_PRINTF_END()
+
+#define EIF_PRINTF(...)  printf(__VA_ARGS__)
+#define BARE_PRINTF(...) printf(__VA_ARGS__)
+
+// Default printf also falls back to regular printf
+#define PRINTF(...) printf(__VA_ARGS__)
+
+#elif defined(CONFIG_LIBMSPSOFTUART_PRINTF)
+
+#include <libmspsoftuart/printf.h>
 
 #define INIT_CONSOLE() printf_init()
 
