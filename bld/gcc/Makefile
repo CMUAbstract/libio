@@ -1,8 +1,2 @@
-EXEC = libio.a
-
-OBJECTS = \
-	empty.o \
-
+include ../Makefile
 include $(MAKER_ROOT)/Makefile.gcc
-
-VPATH = ../../src
