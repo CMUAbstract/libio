@@ -48,7 +48,7 @@
 
 #include <libmspconsole/printf.h>
 
-#define INIT_CONSOLE() printf_init()
+#define INIT_CONSOLE() mspconsole_init()
 
 // All special printfs fall back to the regular printf
 #define BLOCK_PRINTF_BEGIN()
@@ -65,7 +65,7 @@
 
 #include <libmspsoftuart/printf.h>
 
-#define INIT_CONSOLE() printf_init()
+#define INIT_CONSOLE() mspsoftuart_init()
 
 // All special printfs fall back to the regular printf
 #define BLOCK_PRINTF_BEGIN()
