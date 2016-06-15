@@ -19,6 +19,8 @@
 
 #if defined(CONFIG_LIBEDB_PRINTF_EIF) || defined(CONFIG_LIBEDB_PRINTF_BARE)
 
+#include <libedb/edb.h>
+
 // Initialization call
 #if defined(CONFIG_LIBEDB_PRINTF_BARE)
 #define INIT_CONSOLE() BARE_PRINTF_ENABLE()
