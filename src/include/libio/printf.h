@@ -24,7 +24,9 @@
 // Initialization call
 #if defined(CONFIG_LIBEDB_PRINTF_BARE)
 #define INIT_CONSOLE() BARE_PRINTF_ENABLE()
-#endif
+#else // !CONFIG_LIBEDB_PRINTF_BARE
+#define INIT_CONSOLE()
+#endif // !CONFIG_LIBEDB_PRINTF_BARE
 
 // The multi-statement printf, is...
 #define BLOCK_PRINTF_BEGIN() ENERGY_GUARD_BEGIN()
