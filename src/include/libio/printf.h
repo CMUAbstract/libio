@@ -24,6 +24,7 @@
 #if defined(CONFIG_LIBEDB_PRINTF_EIF) || defined(CONFIG_LIBEDB_PRINTF_BARE)
 
 #include <libedb/edb.h>
+#include <libedb/printf.h>
 
 // Initialization call
 #if defined(CONFIG_LIBEDB_PRINTF_BARE)
