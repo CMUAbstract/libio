@@ -1,7 +1,7 @@
 #ifndef LIBIO_CONSOLE_SWUART_H
 #define LIBIO_CONSOLE_HWUART_H
 
-#include <libmspsoftuart/printf.h>
+#include <libmspsoftuart/uart.h>
 
 #define INIT_CONSOLE() console_init()
 
