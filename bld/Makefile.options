@@ -13,3 +13,7 @@ endif
 ifeq ($(LIBIO_OUT),1)
 override CFLAGS += -DLIBIO_OUT
 endif
+
+ifneq ($(VERBOSE),)
+override CFLAGS += -DVERBOSE=$(VERBOSE)
+endif
