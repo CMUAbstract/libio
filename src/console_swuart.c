@@ -7,10 +7,12 @@ void console_init()
     mspsoftuart_init();
 }
 
+#ifdef LIBIO_IN
 int io_getchar(void)
 {
     return mspsoftuart_receive_byte_sync();
 }
+#endif // LIBIO_IN
 
 int io_putchar(int ch)
 {
