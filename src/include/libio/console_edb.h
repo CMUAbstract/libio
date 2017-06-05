@@ -4,7 +4,7 @@
 #include <libedb/edb.h>
 #include <libedb/printf.h>
 
-#define INIT_CONSOLE()
+#define INIT_CONSOLE_BACKEND()
 
 // The multi-statement printf, is...
 #define BLOCK_PRINTF_BEGIN() ENERGY_GUARD_BEGIN()

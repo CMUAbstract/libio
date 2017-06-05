@@ -11,8 +11,6 @@
 #include <libio/console_edb.h>
 #else // no console
 
-#define INIT_CONSOLE()
-
 // All printfs fall back to nop
 #define BLOCK_PRINTF_BEGIN()
 #define BLOCK_PRINTF(...)
@@ -27,23 +25,27 @@
 
 #if VERBOSE > 0
 
+#define INIT_CONSOLE() INIT_CONSOLE_BACKEND()
+
 #define BLOCK_LOG_BEGIN() BLOCK_PRINTF_BEGIN()
 #define BLOCK_LOG(...)    BLOCK_PRINTF(__VA_ARGS__)
 #define BLOCK_LOG_END()   BLOCK_PRINTF_END()
 
-#if VERBOSE > 0
+#if VERBOSE > 1
 #define LOG PRINTF
 #else
 #define LOG(...)
 #endif
 
-#if VERBOSE >= 2
+#if VERBOSE >= 3
 #define LOG2 PRINTF
 #else // VERBOSE < 2
 #define LOG2(...)
 #endif // VERBOSE < 2
 
 #else // !VERBOSE*
+
+#define INIT_CONSOLE()
 
 #define LOG(...)
 #define LOG2(...)

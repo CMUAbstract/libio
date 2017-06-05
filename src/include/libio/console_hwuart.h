@@ -3,7 +3,7 @@
 
 #include <libmsp/uart.h>
 
-#define INIT_CONSOLE() msp_uart_open()
+#define INIT_CONSOLE_BACKEND() msp_uart_open()
 
 // All special printfs fall back to the regular printf
 #define BLOCK_PRINTF_BEGIN()
