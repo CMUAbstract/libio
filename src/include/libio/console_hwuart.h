@@ -1,9 +1,9 @@
 #ifndef LIBIO_CONSOLE_HWUART_H
 #define LIBIO_CONSOLE_HWUART_H
 
-#include <libmspconsole/printf.h>
+#include <libmsp/uart.h>
 
-#define INIT_CONSOLE() console_init()
+#define INIT_CONSOLE() msp_uart_open()
 
 // All special printfs fall back to the regular printf
 #define BLOCK_PRINTF_BEGIN()

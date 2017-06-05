@@ -1,5 +1,5 @@
 #ifndef LIBIO_CONSOLE_SWUART_H
-#define LIBIO_CONSOLE_HWUART_H
+#define LIBIO_CONSOLE_SWUART_H
 
 #include <libmspsoftuart/uart.h>
 
@@ -16,4 +16,4 @@
 // Default printf also falls back to regular printf
 #define PRINTF(...) printf(__VA_ARGS__)
 
-#endif // LIBIO_CONSOLE_HWUART_H
+#endif // LIBIO_CONSOLE_SWUART_H
