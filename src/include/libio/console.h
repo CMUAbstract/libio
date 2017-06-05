@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 
+void console_init();
+
 #if defined(LIBIO_BACKEND_HWUART)
 #include <libio/console_hwuart.h>
 #elif defined(LIBIO_BACKEND_SWUART)
