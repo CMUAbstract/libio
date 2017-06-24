@@ -1,6 +1,6 @@
 LIB = libio
 
 OBJECTS = \
-	empty.o \
+	  	empty.o \
 
 override SRC_ROOT = ../../src

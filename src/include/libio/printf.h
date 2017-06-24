@@ -50,6 +50,7 @@
 #include <libmspconsole/printf.h>
 
 #define INIT_CONSOLE() mspconsole_init()
+//#define INIT_CONSOLE() UART_init() //kwmaeng. changed to fix uart
 
 // All special printfs fall back to the regular printf
 #define BLOCK_PRINTF_BEGIN()
