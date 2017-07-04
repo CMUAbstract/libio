@@ -13,6 +13,10 @@ void console_init();
 #include <libio/console_edb.h>
 #else // no console
 
+#define NO_CONSOLE
+
+#define INIT_CONSOLE_BACKEND()
+
 // All printfs fall back to nop
 #define BLOCK_PRINTF_BEGIN()
 #define BLOCK_PRINTF(...)
@@ -25,7 +29,7 @@ void console_init();
 
 #endif // no printf
 
-#if VERBOSE > 0
+#if (VERBOSE > 0) && !defined(NO_CONSOLE)
 
 #define INIT_CONSOLE() INIT_CONSOLE_BACKEND()
 
@@ -45,7 +49,7 @@ void console_init();
 #define LOG2(...)
 #endif // VERBOSE < 2
 
-#else // !VERBOSE*
+#else // !VERBOSE* || NO_CONSOLE
 
 #define INIT_CONSOLE()
 
@@ -56,6 +60,6 @@ void console_init();
 #define BLOCK_LOG(...)
 #define BLOCK_LOG_END()
 
-#endif // !VERBOSE*
+#endif // !VERBOSE* || NO_CONSOLE
 
 #endif // LIBIO_CONSOLE_H
