@@ -6,6 +6,7 @@
 void console_init();
 
 #if defined(LIBIO_BACKEND_HWUART)
+#warning INCLUDING HW BACKEND
 #include <libio/console_hwuart.h>
 #elif defined(LIBIO_BACKEND_SWUART)
 #include <libio/console_swuart.h>
