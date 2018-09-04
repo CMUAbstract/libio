@@ -54,7 +54,7 @@ void poweroff()
     }
 }
 
-void init()
+void init_uart()
 {
     uart[UART_REG_DIV] = CPU_FREQ / BAUD_RATE - 1;
     uart[UART_REG_TXCTRL] = UART_TXEN;

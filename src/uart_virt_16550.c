@@ -38,4 +38,4 @@ void poweroff()
     }
 }
 
-void init() {}
+void init_uart() {}

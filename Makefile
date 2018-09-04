@@ -1,6 +1,6 @@
 LIB = libio
 
-DEPS = libfemto
+DEPS = libfemto libspike
 
 include ../../Makefile.config
 ifeq ($(LIBIO_BACKEND),spike)
