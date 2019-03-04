@@ -7,6 +7,13 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+#ifdef PACARANA
+#include <libpacarana/pacarana.h>
+#include <stdint.h>
+REGISTER(uart);
+#endif
+
+
 #include "backend.h"
 
 #define PUTC(c) io_putchar(c)
@@ -42,13 +49,24 @@ static void xtoa(unsigned long x, const unsigned long *dp)
         PUTC('0');
 }
 
+#ifdef PACARANA
+DRIVER static void puth(unsigned n)
+#else
 static void puth(unsigned n)
+#endif
 {
     static const char hex[16] = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+    #ifdef PACARANA
+    STATE_CHANGE(uart,0x0);
+    #endif
     PUTC(hex[n & 15]);
 }
- 
+
+#ifdef PACARANA
+DRIVER int printf(const char *format, ...)
+#else
 int printf(const char *format, ...)
+#endif
 {
     char c;
     int i;
