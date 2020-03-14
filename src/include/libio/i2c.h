@@ -3,9 +3,9 @@
 
 #include <stdint.h>
 
-extern volatile uint32_t i2c_addr __attribute__((section(".i2c_addr_vec")));
-extern volatile uint32_t i2c_data __attribute__((section(".i2c_data_vec")));
-extern volatile uint32_t i2c_status __attribute__((section(".i2c_status_vec")));
+extern volatile uint32_t i2c_addr __attribute__((section(".i2c_addr")));
+extern volatile uint32_t i2c_data __attribute__((section(".i2c_data")));
+extern volatile uint32_t i2c_status __attribute__((section(".i2c_status")));
 
 #define I2C_LEN_1 0x0
 #define I2C_LEN_2 0x1

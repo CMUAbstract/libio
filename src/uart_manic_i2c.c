@@ -1,3 +1,5 @@
+#include <stdbool.h>
+
 #include "console.h"
 #include "i2c.h"
 
@@ -5,7 +7,13 @@
 
 void init_uart() {}
 
+void delay(uint32_t cycles) {
+	volatile bool delay = false;
+	while(cycles--) delay = !delay;
+}
+
 int putchar(int ch) {
+	// delay(100000);
 	i2c_addr = I2C_UART_DEVICE_ADDR;
 	i2c_data = I2C_CMD_PRINT;
 	i2c_status = I2C_LEN_1 | I2C_WRITE;
