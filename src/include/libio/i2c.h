@@ -5,6 +5,7 @@
 
 extern volatile uint32_t i2c_addr __attribute__((section(".i2c_addr")));
 extern volatile uint32_t i2c_data __attribute__((section(".i2c_data")));
+extern volatile uint32_t i2c_prer __attribute__((section(".i2c_prer")));
 extern volatile uint32_t i2c_status __attribute__((section(".i2c_status")));
 
 #define I2C_LEN_1 0x0
@@ -23,5 +24,9 @@ extern volatile uint32_t i2c_status __attribute__((section(".i2c_status")));
 #define I2C_CMD_WRITE 0x1
 #define I2C_CMD_FLASH 0x2
 #define I2C_CMD_PRINT 0x3
+
+#define I2C_PRER_TEST 0x4
+#define I2C_PRER_10 0x13
+#define I2C_PRER_50 0x63
 
 #endif
