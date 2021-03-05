@@ -15,6 +15,10 @@ else ifeq ($(LIBIO_BACKEND),virt)
 OBJECTS = uart_virt_16550.o
 endif # LIBIO_BACKEND
 
+ifneq ($(LIBIO_SILICON),)
+override CFLAGS += -DSILICON=1
+endif
+
 override SRC_ROOT = ../../src
 
 override CFLAGS += -I $(SRC_ROOT)/include/$(LIB)

@@ -13,11 +13,16 @@ void delay(uint32_t cycles) {
 }
 
 int putchar(int ch) {
-	// delay(100000);
+#ifdef SILICON
+	delay(5000);
+#endif
 	i2c_addr = I2C_UART_DEVICE_ADDR;
 	i2c_data = I2C_CMD_PRINT;
 	i2c_status = I2C_LEN_1 | I2C_WRITE;
 	while(!i2c_status);
+#ifdef SILICON
+	delay(5000);
+#endif
 	i2c_data = ch & 0xff;
 	i2c_status = I2C_LEN_1 | I2C_WRITE;
 	while(!i2c_status);	
