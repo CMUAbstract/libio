@@ -14,7 +14,7 @@ void delay(uint32_t cycles) {
 
 int putchar(int ch) {
 #ifdef SILICON
-	delay(5000);
+	delay(10000);
 #endif
 	i2c_addr = I2C_UART_DEVICE_ADDR;
 	i2c_data = I2C_CMD_PRINT;
