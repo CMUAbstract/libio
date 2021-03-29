@@ -1,16 +1,13 @@
 #include <stdbool.h>
 
+#include <libfemto/femto.h>
+
 #include "console.h"
 #include "i2c.h"
 
 #define I2C_UART_DEVICE_ADDR 0xad
 
 void init_uart() {}
-
-void delay(uint32_t cycles) {
-	volatile bool delay = false;
-	while(cycles--) delay = !delay;
-}
 
 int putchar(int ch) {
 #ifdef SILICON
