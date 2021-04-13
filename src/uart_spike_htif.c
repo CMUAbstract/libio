@@ -1,7 +1,6 @@
 // See LICENSE for license details.
 
 #include <libfemto/atomic.h>
-#include <libfemto/encoding.h>
 #include <libspike/abi.h>
 
 #include "console.h"
